@@ -1,19 +1,25 @@
+import Head from "next/head";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 function Blog({ posts }) {
   return (
-    <div style={{ width: "70%", margin: "auto" }}>
-      <h1 style={{ marginBottom: "30px", textAlign: "center" }}>Blog</h1>
-      {posts.map((post, index) => (
-        <div key={post.id} className="postContainer">
-          <Link href={`/post/${post.id}`}>
-            <h4 className="postTitle">{`${index}-${post.title}`}</h4>
-            <p className="postBody">{post.body}</p>
-          </Link>
-        </div>
-      ))}
-    </div>
+    <>
+      <div style={{ width: "70%", margin: "auto" }}>
+        <h1 style={{ marginBottom: "30px", textAlign: "center" }}>Blog</h1>
+        {posts.map((post, index) => (
+          <div key={post.id} className="postContainer">
+            <Link href={`/post/${post.id}`}>
+              <h4 className="postTitle">{`${index + 1}-${post.title}`}</h4>
+              <p className="postBody">{post.body}</p>
+            </Link>
+          </div>
+        ))}
+      </div>
+      <Head>
+        <title>Blog Page</title>
+      </Head>
+    </>
   );
 }
 
@@ -33,7 +39,7 @@ export async function getStaticProps() {
     props: {
       posts,
     },
-    revalidate: 10,
   };
 }
+
 export default Blog;

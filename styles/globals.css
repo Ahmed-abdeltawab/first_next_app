@@ -12,14 +12,15 @@ a {
   padding: 10px;
   border: 2px solid white;
   margin-bottom: 12px;
-
+  border-radius: 5px;
+  
 }
 
 .postTitle {
-  color: "#005f73";
-  font-size: 20px
+  color: #005f73;
+  font-size: 27px
 }
 
 .postBody {
-  color: "#ee9b00"
+  color: #ee9b00
 }

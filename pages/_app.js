@@ -1,13 +1,11 @@
 import "@/styles/globals.css";
-import Head from "next/head";
+import { Heebo } from "next/font/google";
 
+const heebo = Heebo({ subsets: ["latin"], weights: [400, 700] });
 export default function App({ Component, pageProps }) {
   return (
-    <>
-      <Head>
-        <title>Test App</title>
-      </Head>
+    <main className={heebo.className} >
       <Component {...pageProps} />
-    </>
+    </main>
   );
 }

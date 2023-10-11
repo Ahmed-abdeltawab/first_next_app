@@ -13,7 +13,7 @@ a {
   border: 2px solid white;
   margin-bottom: 12px;
   border-radius: 5px;
-  
+
 }
 
 .postTitle {
@@ -23,4 +23,12 @@ a {
 
 .postBody {
   color: #ee9b00
+}
+
+.btn {
+  background-color: #005f73;
+  color: "white";
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: larger;
 }

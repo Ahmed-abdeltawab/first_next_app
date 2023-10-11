@@ -1,10 +1,15 @@
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import Blog from "./blog";
+import dynamic from "next/dynamic";
+const BlogPage = dynamic(() => import("./blog.js"), { ssr: true });
 
 function Comments({ comments }) {
+  const [show, setShow] = useState(false);
   if (!comments) {
-    return <div>Loading❗❗❗❗❗❗❗❗❗❗❗❗❗❗</div>;
+    return <div>Loading❗❗❗❗</div>;
   }
   return (
     <>
@@ -12,7 +17,17 @@ function Comments({ comments }) {
         <title>Comments Page</title>
       </Head>
       <div style={{ width: "70%", margin: "50px auto" }}>
-        <h1 style={{ textAlign: "center", marginBottom: "30px" }}>Comments</h1>
+        {/* <h1 style={{ textAlign: "center", marginBottom: "30px" }}>Comments</h1> */}
+        <Image
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB2f17TKRAxpv6gWFlFSNRvUQKQ9ScpZdt4A&usqp=CAU"
+          width={400}
+          height={200}
+          alt="comments"
+          onClick={() => {
+            setShow(!show);
+          }}
+        />
+        {show && <BlogPage />}
         {comments.map((comment, index) => (
           <div key={comment.id} className="postContainer">
             <Link href={`/comment/${comment.id}`}>

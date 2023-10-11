@@ -7,7 +7,7 @@ function Blog({ posts }) {
     <>
       <div style={{ width: "70%", margin: "auto" }}>
         <h1 style={{ marginBottom: "30px", textAlign: "center" }}>Blog</h1>
-        {posts.map((post, index) => (
+        {posts?.map((post, index) => (
           <div key={post.id} className="postContainer">
             <Link href={`/post/${post.id}`}>
               <h4 className="postTitle">{`${index + 1}-${post.title}`}</h4>
